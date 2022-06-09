@@ -1,0 +1,21 @@
+{
+  "name": "hello-moon-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cheshirekate8/hello-moon-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cheshirekate8/hello-moon-project/issues"
+  },
+  "homepage": "https://github.com/cheshirekate8/hello-moon-project#readme"
+}
