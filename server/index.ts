@@ -1,3 +1,5 @@
+// 0.000000001 SOL === 1 Lamport
+
 const express = require("express");
 const asyncHandler = require('express-async-handler')
 const request = require('request');
