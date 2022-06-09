@@ -32,11 +32,19 @@ app.get(
     function callback(error, response, body) {
       if (!error && response.statusCode == 200) {
         const top20 = JSON.parse(body);
+        top20.result.value.forEach((account, i) => {
+          account.sol = account.lamports / 1000000000
+          // TODO - Find out how to request exact sol conversion rate 
+          account.usd = account.sol * 0.27
+        })
         return res.json(top20.result.value)
+      } else {
+        return error
       }
     }
-
+    
     request(options, callback);
+    
   }),
 );
 
