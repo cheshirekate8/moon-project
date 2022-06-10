@@ -25,23 +25,25 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <img src="/solanaLogo.svg" alt="Solana logo" className={styles.logo}></img>
-      <div className={styles.top20Div}>
-        <header>Top 20 Accounts</header>
-        <label className={styles.toggleSwitch}>
-          <span className={styles.toggleText}></span>
-          <input type="checkbox" checked={showUSD} onChange={handleChange}></input>
-          <span className={styles.switch} />
-        </label>
-        {
-          data ?
-            <ul className={styles.list}>
-              {listItems}
-            </ul>
-            :
-            <p> Loading... </p>
-        }
-        {/* <button onClick={handleChange} className={styles.convertButton}>Change to {showUSD ? "SOL" : "USD"}</button> */}
+      <div className={styles.wrapper}>
+        <img src="/solanaLogo.svg" alt="Solana logo" className={styles.logo}></img>
+        <div className={styles.top20Div}>
+          <header>Top 20 Accounts</header>
+          <label className={styles.toggleSwitch}>
+            <span className={styles.toggleText}></span>
+            <input type="checkbox" checked={showUSD} onChange={handleChange}></input>
+            <span className={styles.switch} />
+          </label>
+          {
+            data ?
+              <ul className={styles.list}>
+                {listItems}
+              </ul>
+              :
+              <p> Loading... </p>
+          }
+          {/* <button onClick={handleChange} className={styles.convertButton}>Change to {showUSD ? "SOL" : "USD"}</button> */}
+        </div>
       </div>
     </div>
   );

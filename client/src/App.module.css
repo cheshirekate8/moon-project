@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+}
+
+.wrapper {
   background-color: rgb(19, 32, 64);
   min-height: 100vh;
   display: flex;
@@ -8,13 +11,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  white-space: normal;
 }
 
 .top20Div {
   background-color: rgb(31, 42, 74);
   border-radius: 1rem;
-  box-sizing: content-box;
   width: 550px;
   padding: 2rem 4rem;
   position: relative;
@@ -40,7 +41,7 @@
 
 .logo {
   width: 40vmin;
-  margin: 2rem 0;
+  margin: 6vmin 0;
 }
 
 .toggleSwitch {
