@@ -1,8 +1,8 @@
 // 0.000000001 SOL === 1 Lamport
 
-const express = require("express");
-const asyncHandler = require('express-async-handler')
-const request = require('request');
+import express from "express";
+import asyncHandler from 'express-async-handler';
+import request from 'request';
 
 const PORT = process.env.PORT || 3001;
 
@@ -51,3 +51,5 @@ app.get(
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
+
+export { app };
