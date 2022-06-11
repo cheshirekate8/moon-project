@@ -1,27 +1,35 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./App.module.css";
 
 
 function App() {
-  const [data, setData] = useState<any>(null);
+  type Account = {
+    address: string;
+    lamports: number;
+    sol: number;
+    usd: number;
+  }
+
+  const [data, setData] = useState<Account[] | null>(null);
   const [showUSD, setShowUSD] = useState<boolean>(false)
 
   useEffect(() => {
     fetch("/top20")
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => setData(data))
   }, []);
 
-  const listItems = data?.map((account: any, index: number) =>
-    <>
-      <li hidden={showUSD} className={styles.listItem}><span className={styles.amount}>{account.sol} SOL</span></li>
-      <li hidden={!showUSD} className={styles.listItem}><span className={styles.amount}>${(account.usd).toFixed(2)}</span></li>
-    </>
+  const listItems = data?.map((account: Account, index: number) =>
+    <li className={styles.listItem} key={`li-${index}`}>
+      <span hidden={showUSD}><span className={styles.amount}>{account.sol} SOL</span></span>
+      <span hidden={!showUSD}><span className={styles.amount}>{monify(account.usd)}</span></span>
+    </li>
   );
 
   const handleChange = () => {
     setShowUSD(!showUSD)
   }
+
 
   return (
     <div className={styles.App}>
@@ -42,11 +50,19 @@ function App() {
               :
               <p> Loading... </p>
           }
-          {/* <button onClick={handleChange} className={styles.convertButton}>Change to {showUSD ? "SOL" : "USD"}</button> */}
         </div>
       </div>
     </div>
   );
+}
+
+export const monify = (n: number) => {
+  const newNum = n.toFixed(2)
+  const split = newNum.split(".")
+  const firstHalf = split[0];
+  const secondHalf = split[1];
+  const newFirstHalf = Number(firstHalf).toLocaleString();
+  return "$" + newFirstHalf + "." + secondHalf
 }
 
 export default App;

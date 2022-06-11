@@ -11,6 +11,7 @@
     "@types/node": "^16.11.39",
     "@types/react": "^18.0.12",
     "@types/react-dom": "^18.0.5",
+    "msw": "^0.42.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
@@ -44,6 +45,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
+    "react-test-renderer": "^18.1.0",
     "tailwindcss": "^3.1.0"
   }
 }
