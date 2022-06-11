@@ -1,4 +1,5 @@
 // 0.000000001 SOL === 1 Lamport
+// $37.65 === 1 SOL
 
 import express from "express";
 import asyncHandler from 'express-async-handler';
@@ -21,7 +22,7 @@ app.get(
     };
 
     const dataString = '{ "jsonrpc": "2.0", "id": 1, "method": "getLargestAccounts" }';
-    
+
     const options = {
       url: 'http://localhost:8899',
       method: 'POST',
@@ -35,16 +36,16 @@ app.get(
         top20.result.value.forEach((account, i) => {
           account.sol = account.lamports / 1000000000
           // TODO - Find out how to request exact sol conversion rate 
-          account.usd = account.sol * 0.27
+          account.usd = account.sol * 37.65
         })
         return res.json(top20.result.value)
       } else {
         return error
       }
     }
-    
+
     request(options, callback);
-    
+
   }),
 );
 
